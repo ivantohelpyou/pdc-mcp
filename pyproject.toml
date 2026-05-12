@@ -1,0 +1,39 @@
+[project]
+name = "pdc-mcp"
+version = "0.1.0"
+description = "MCP server for Washington State Public Disclosure Commission campaign finance data"
+readme = "README.md"
+authors = [
+    { name = "Ivan Schneider", email = "ivan@ivantohelpyou.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.12"
+keywords = ["mcp", "campaign-finance", "civic-tech", "washington-state", "pdc", "socrata"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "fastmcp>=2.14.0",
+    "pydantic>=2.0.0",
+    "uvicorn>=0.30.0",
+    "requests>=2.32.4",
+    "python-dotenv>=1.1.0",
+]
+
+[project.scripts]
+pdc-mcp = "pdc_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/ivantohelpyou/wa-campaign-finance"
+Repository = "https://github.com/ivantohelpyou/wa-campaign-finance"
+Issues = "https://github.com/ivantohelpyou/wa-campaign-finance/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pdc_mcp"]
